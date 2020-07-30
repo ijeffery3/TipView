@@ -24,7 +24,7 @@ class TipLabel: UIView {
         self.layer.cornerRadius = contHeight / 2
         self.addSubview(self.label)
         self.accessibilityViewIsModal = true
-        self.superview?.clipsToBounds = true
+        
 
     }
     
@@ -39,6 +39,7 @@ class TipLabel: UIView {
     }
     
     func showView(text: String, view: UIView) {
+        view.clipsToBounds = true
         let width = self.labelWidth(text, 30)
         self.label.text = text;
         self.frame = CGRect(x: 0, y: -contHeight, width: width, height: contHeight)
