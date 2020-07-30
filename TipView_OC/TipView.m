@@ -37,7 +37,6 @@ static TipView *instance = nil;
     self = [super initWithFrame:frame];
     if (self) {
         self.layer.cornerRadius = contHeight / 2;
-        self.superview.clipsToBounds = YES;
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
         [self addSubview:self.label];
     }
@@ -51,6 +50,7 @@ static TipView *instance = nil;
 
 - (void)showAnimateWithText:(NSString *)text inView:(UIView *)view
 {
+    view.clipsToBounds = YES;
     self.label.text = text;
     CGFloat width = [self labelWidth:text];
     self.frame = CGRectMake( 0, -contHeight,  width,  contHeight);
